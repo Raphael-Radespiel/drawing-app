@@ -1,3 +1,4 @@
+import SpriteGrid from "./SpriteGrid"
 import ColorPallet from "./ColorPallet"
 
 export default function App() {
@@ -5,6 +6,7 @@ export default function App() {
 
   return (
     <div>
+      <SpriteGrid/>
       <ColorPallet pallet={colorPallet}/>
     </div>
   )
