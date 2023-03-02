@@ -1,0 +1,17 @@
+.pallet-container{
+  display: grid; 
+  grid-template-columns: repeat(8, 3rem); 
+  grid-gap: .25rem; 
+  background-color: darkgray;
+  width: fit-content;
+  padding: .25rem
+}
+
+.pallet-cell{
+  width: 3rem;
+  height: 3rem;
+}
+
+.pallet-cell:hover{
+  cursor: pointer;
+}
