@@ -1,10 +1,11 @@
+import ColorPalletCell from "./ColorPalletCell"
 import './ColorPallet.css'
 
-export default function colorPallet({pallet}){
+export default function colorPallet({pallet, changeSelectedColor}){
   return(
     <div className='pallet-container'>
       {pallet.map(color => {
-        return <div key={color} className='pallet-cell' style={{backgroundColor: color}}></div>
+        return <ColorPalletCell key={color} color={color} changeSelectedColor={changeSelectedColor}/>
       })} 
     </div>
   )

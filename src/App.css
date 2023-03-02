@@ -1,0 +1,18 @@
+.bottom-container{
+  display: flex;
+}
+
+button{
+  background-color: #7f7d7d;
+  border: 8px solid dimgray;
+  color: #3e3e3e;
+  font-size: 1rem;
+  padding: 1rem;
+  font-weight: 900;
+}
+
+.selected-color{
+  width: 6rem;
+  height: 6rem;
+  border: .4rem solid darkgrey;
+}
