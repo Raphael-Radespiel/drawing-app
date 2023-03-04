@@ -1,5 +1,5 @@
 import SpriteGridCell from "./SpriteGridCell"
-import "./SpriteGrid.css"
+import "./style/SpriteGrid.css"
 
 export default function SpriteGrid({gridValues, selectedColor, updateSpriteArray}){
   return (

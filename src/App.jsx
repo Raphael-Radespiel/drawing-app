@@ -1,7 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
+import SpriteSelect from "./SpriteSelect";
 import SpriteGrid from "./SpriteGrid"
 import ColorPallet from "./ColorPallet"
-import "./App.css"
+import "./style/App.css"
 
 const LOCAL_STORAGE_VARIABLE = "pixel-canvas-app";
 
@@ -22,7 +23,7 @@ export default function App() {
     localStorage.setItem(LOCAL_STORAGE_VARIABLE, JSON.stringify(spriteArray));
   }, [spriteArray]);
 
-  const colorPallet = [ "#213b25",  "#3a604a", "#4f7754", "#a19f7c", "#77744f", "#775c4f", "#603b3a", "#3b2137", "#170e19", "#2f213b", "#433a60", "#4f5277", "#65738c", "#7c94a1", "#a0b9ba", "#c0d1cc"];
+  const colorPallet = [ "#430067", "#94216a", "#ff004d", "#ff8426", "#ffdd34", "#50e112", "#3fa66f", "#365987", "#000000", "#0033ff", "#29adff", "#00ffcc", "#fff1e8", "#c2c3c7", "#ab5236", "#5f574f"];
 
   function changeSelectedColor(color){
     setColor(color); 
@@ -44,13 +45,16 @@ export default function App() {
   }
 
   return (
-    <div>
-      <SpriteGrid gridValues={spriteArray[0]} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
-      <div className="bottom-container">
-        <div className="selected-color" style={{backgroundColor: selectedColor}}>
+    <div style={{display: "flex"}}>
+      <SpriteSelect spriteArray={spriteArray}/>
+      <div className="main-display">
+        <SpriteGrid gridValues={spriteArray[0]} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
+        <div className="bottom-container">
+          <div className="selected-color" style={{backgroundColor: selectedColor}}>
+          </div>
+          <ColorPallet pallet={colorPallet} changeSelectedColor={changeSelectedColor}/>
+          <button onClick={createNewSprite}>New<br/>Sprite</button>
         </div>
-        <ColorPallet pallet={colorPallet} changeSelectedColor={changeSelectedColor}/>
-        <button onClick={createNewSprite}>New<br/>Sprite</button>
       </div>
     </div>
   )

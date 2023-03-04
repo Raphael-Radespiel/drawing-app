@@ -1,5 +1,5 @@
 import ColorPalletCell from "./ColorPalletCell"
-import './ColorPallet.css'
+import './style/ColorPallet.css'
 
 export default function colorPallet({pallet, changeSelectedColor}){
   return(

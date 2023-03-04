@@ -16,3 +16,11 @@ button{
   height: 6rem;
   border: .4rem solid darkgrey;
 }
+
+.main-display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+}
