@@ -1,13 +1,12 @@
 import SpriteSelectCell from "./SpriteSelectCell"
 import "./style/SpriteCell.css"
 
-export default function SpriteSelect({spriteArray}){
+export default function SpriteSelect({spriteArray, updateSelectedSprite}){
 
-  // BE CAREFUL, FIX THIS KEY VALUE LATER TODO:
   return (
     <div className="sprite-select-container">
-      {spriteArray.map((sprite) => {
-        return <SpriteSelectCell key={sprite} sprite={sprite}/>
+      {spriteArray.map((sprite, index) => {
+        return <SpriteSelectCell key={index} sprite={sprite} spriteIndex={index} updateSelectedSprite={updateSelectedSprite}/>
       })}
     </div>
   )

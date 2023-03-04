@@ -9,6 +9,7 @@ const LOCAL_STORAGE_VARIABLE = "pixel-canvas-app";
 export default function App() {
   const [selectedColor, setColor] = useState("#FFFF");
   const [spriteArray, setSpriteArray] = useState([[]]);
+  const [selectedSprite, setSelectedSprite] = useState(1);
 
   useMemo(() => {
     if(JSON.parse(localStorage.getItem(LOCAL_STORAGE_VARIABLE)) == null){
@@ -29,11 +30,9 @@ export default function App() {
     setColor(color); 
   }
 
-  // NOW WE ARE GOING TO HAVE TO CREATE A NEW STATE OF SPRITE INDEX 
-  // we'll just update sprite array [0] for now
   function updateSpriteArray(index, color){
     let newSpriteArray = [...spriteArray];
-    newSpriteArray[0][index] = color;
+    newSpriteArray[selectedSprite][index] = color;
     setSpriteArray(newSpriteArray);
   }
 
@@ -44,11 +43,15 @@ export default function App() {
     setSpriteArray(cloneSpriteArray);
   }
 
+  function updateSelectedSprite(index){
+    setSelectedSprite(index);
+  }
+
   return (
     <div style={{display: "flex"}}>
-      <SpriteSelect spriteArray={spriteArray}/>
+      <SpriteSelect spriteArray={spriteArray} updateSelectedSprite={updateSelectedSprite}/>
       <div className="main-display">
-        <SpriteGrid gridValues={spriteArray[0]} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
+        <SpriteGrid gridValues={spriteArray[selectedSprite]} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
         <div className="bottom-container">
           <div className="selected-color" style={{backgroundColor: selectedColor}}>
           </div>

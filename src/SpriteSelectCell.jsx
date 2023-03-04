@@ -1,9 +1,13 @@
 import {useEffect, useRef} from 'react'
 
-export default function SpriteSelectCell({sprite}){
+export default function SpriteSelectCell({sprite, spriteIndex, updateSelectedSprite}){
   const canvas = useRef();
 
   let size = 80;
+
+  function handleSelectedSpriteUpdate(){
+    updateSelectedSprite(spriteIndex);
+  }
 
   useEffect(() => {
     canvas.current.height = size;
@@ -22,6 +26,6 @@ export default function SpriteSelectCell({sprite}){
   }, []);
 
   return (
-    <canvas ref={canvas}></canvas>
+    <canvas ref={canvas} onClick={handleSelectedSpriteUpdate}></canvas>
   )
 }
