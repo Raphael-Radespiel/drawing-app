@@ -9,7 +9,7 @@ const LOCAL_STORAGE_VARIABLE = "pixel-canvas-app";
 export default function App() {
   const [selectedColor, setColor] = useState("#FFFF");
   const [spriteArray, setSpriteArray] = useState([[]]);
-  const [selectedSprite, setSelectedSprite] = useState(1);
+  const [selectedSprite, setSelectedSprite] = useState(0);
 
   useMemo(() => {
     if(JSON.parse(localStorage.getItem(LOCAL_STORAGE_VARIABLE)) == null){
@@ -51,7 +51,7 @@ export default function App() {
     <div style={{display: "flex"}}>
       <SpriteSelect spriteArray={spriteArray} updateSelectedSprite={updateSelectedSprite}/>
       <div className="main-display">
-        <SpriteGrid gridValues={spriteArray[selectedSprite]} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
+        <SpriteGrid gridValues={spriteArray} spriteIndex={selectedSprite} selectedColor={selectedColor} updateSpriteArray={updateSpriteArray}/>
         <div className="bottom-container">
           <div className="selected-color" style={{backgroundColor: selectedColor}}>
           </div>
