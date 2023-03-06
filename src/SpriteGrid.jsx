@@ -16,7 +16,7 @@ function SpriteGridCell({color, selectedColor, index, updateSpriteArray}){
 
   useEffect(() => {
     setColor(color);
-  });
+  }, [color]);
 
   function handleSpriteCellClick(){
     setColor(selectedColor);

@@ -1,5 +1,5 @@
 import {useEffect, useRef} from 'react'
-import "./style/SpriteCell.css"
+import "./style/SpriteSelect.css"
 
 export default function SpriteSelect({spriteArray, updateSelectedSprite}){
 
@@ -14,7 +14,7 @@ export default function SpriteSelect({spriteArray, updateSelectedSprite}){
 function SpriteSelectCell({sprite, spriteIndex, updateSelectedSprite}){
   const canvas = useRef();
 
-  let size = 80;
+  let size = 56;
 
   function handleSelectedSpriteUpdate(){
     updateSelectedSprite(spriteIndex);
@@ -31,7 +31,7 @@ function SpriteSelectCell({sprite, spriteIndex, updateSelectedSprite}){
       for(let y = 0; y < 8; y++){
         context.fillStyle = sprite[y*8+x];
         context.fillRect(x * n, y * n, n, n);
-      }
+      } 
     }
   });
 
